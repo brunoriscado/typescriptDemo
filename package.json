@@ -12,6 +12,7 @@
     "gulp": "^3.9.0",
     "gulp-config": "^0.3.0",
     "gulp-shell": "^0.2.5",
+    "gulp-sourcemaps": "^1.6.0",
     "gulp-tsc": "^1.1.4",
     "gulp-typescript": "^2.10.0",
     "run-sequence": "^0.3.6",

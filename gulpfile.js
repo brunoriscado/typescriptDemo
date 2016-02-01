@@ -1,5 +1,6 @@
 var gulp = require("gulp");
 var ts = require("gulp-typescript");
+var sourcemaps = require('gulp-sourcemaps');
 var typescript = require('gulp-tsc');
 
 function errorLog (error) {
@@ -7,9 +8,13 @@ function errorLog (error) {
   this.emit('end');
 }
 
+//The --sourcemap option is used to generate a .js.map file. 
+//It is used by debuggers to map the generated JavaScript to the source TypeScript.
 gulp.task('typescript-compile', function(){
-  return gulp.src(['src/typescript/*.ts'])
+  return gulp.src(['src/ts/*.ts'])
     .pipe(typescript())
+    .pipe(sourcemaps.init())     
+    .pipe(sourcemaps.write("src/js/maps"))
     .on('error', errorLog)
     .pipe(gulp.dest('src/js/'));
 });
